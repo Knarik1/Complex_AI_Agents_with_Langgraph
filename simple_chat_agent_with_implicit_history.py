@@ -17,6 +17,7 @@ class State(TypedDict):
 
 # nodes
 def llm_call(state: State):
+    """ Function to call LLM and put the returned response back to messages"""
     # call llm
     response = LLM.invoke(state["messages"])
     state["messages"].append(AIMessage(response.content))
